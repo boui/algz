@@ -15,12 +15,6 @@ public class MergeSort {
         Integer[] right = new Integer[n - half];
         System.arraycopy(array, half, right, 0, n - half);
 
-        System.out.println("left");
-        Utils.printList(left);
-        System.out.println("right");
-        Utils.printList(right);
-        System.out.println("_____");
-
         left = sortRecursively(left);
         right = sortRecursively(right);
 
@@ -32,18 +26,14 @@ public class MergeSort {
 
         for(int i=1; i<r.length; i = 2*i){
             for(int j=0; j< r.length - i; j += 2*i){
-                mergeInPlace(r, j, Math.min(r.length - i, j + 2*i));
-                System.out.println("start:"+i);
-                System.out.println("end:"+Math.min(j+i, r.length - i));
+                mergeInPlace(r, j, Math.min(r.length, j + i), Math.min(r.length, j + 2*i));
             }
-            System.out.println(i);
-            Utils.printList(r);
         }
         return r;
     }
 
-    private void mergeInPlace(Integer[] array, int start1, int end1, int end2){
-        int i=start1; int j = end1;
+    private void mergeInPlace(Integer[] array, int start, int end1, int end2){
+        int i=start; int j = end1;
         List<Integer> result = new LinkedList<Integer>();
         while (i<end1 && j<end2){
             if(array[i]<array[j]){
@@ -65,8 +55,8 @@ public class MergeSort {
             j++;
         }
 
-        for(int k = start1; k<result.size(); k++){
-            array[k] = result.get(k);
+        for(int k = 0; k<result.size(); k++){
+            array[start+k] = result.get(k);
         }
     }
 
