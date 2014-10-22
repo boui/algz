@@ -18,4 +18,12 @@ public class Utils {
         for(Integer i:list) System.out.print(i+",");
         System.out.println("]");
     }
+
+    public static void printList(int[] list){
+        System.out.print("[");
+        for(int i=0; i<list.length; i++) {
+            System.out.print(list[i]+",");
+        }
+        System.out.println("]");
+    }
 }
