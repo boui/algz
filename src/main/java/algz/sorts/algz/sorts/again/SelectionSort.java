@@ -1,6 +1,6 @@
 package algz.sorts.algz.sorts.again;
 
-import algz.sorts.Utils;
+import algz.Utils;
 
 public class SelectionSort {
     public Integer[] sort(Integer[] array){

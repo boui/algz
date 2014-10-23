@@ -1,4 +1,4 @@
-package algz.sorts;
+package algz;
 
 public class Utils {
     public static void swap(int from, int to, Integer[] array) {
@@ -6,6 +6,13 @@ public class Utils {
         array[to] = array[from];
         array[from] = tmp;
     }
+
+    public static void swap(int from, int to, int[] array) {
+        Integer tmp = array[to];
+        array[to] = array[from];
+        array[from] = tmp;
+    }
+
 
     public static Integer[] arrayFullCopy(int n, Integer[] array){
         Integer[] r = new Integer[n];

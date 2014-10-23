@@ -1,6 +1,6 @@
 package algz.sorts.algz.sorts.again;
 
-import algz.sorts.Utils;
+import algz.Utils;
 
 /**
  * User: boui

@@ -1,5 +1,7 @@
 package algz.sorts;
 
+import algz.Utils;
+
 public class BubleSort {
     public Integer[] sort(Integer[] array){
         int n = array.length;

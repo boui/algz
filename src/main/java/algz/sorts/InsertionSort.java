@@ -1,5 +1,7 @@
 package algz.sorts;
 
+import algz.Utils;
+
 public class InsertionSort {
 
   public Integer[] sort(Integer[] array){

@@ -1,5 +1,7 @@
 package algz.sorts;
 
+import algz.Utils;
+
 import java.util.Random;
 
 public class QuickSort {
