@@ -40,9 +40,6 @@ public class Heap {
     public int extractMin(){
         int tmp = heap[1];
 
-        System.out.println("Extract:["+tmp+"]");
-        Utils.printList(heap);
-        System.out.println("____________");
         deleteMin();
         return tmp;
     }
@@ -74,29 +71,13 @@ public class Heap {
         int minPos = pos;
         c1 = getLessChild(pos); c2 = c1+1;
 
-        System.out.println("c1 = "+c1+"; ["+heap[c1]+"]");
-        System.out.println("c2 = "+c2+"; ["+heap[c2]+"]");
-        System.out.println("pos = "+pos+"; ["+heap[pos]+"]");
-        System.out.println("last = "+last+"; ["+heap[last]+"]");
-
         if(c1 < last && heap[pos] > heap[c1]) minPos = c1;
         if(c2 < last && heap[pos] > heap[c2] && heap[c1] > heap[c2]) minPos = c2;
 
         if(minPos != pos){
-            System.out.println("minPos = "+minPos+"; ["+heap[minPos]+"]");
             Utils.swap(minPos, pos, heap);
-
-            System.out.println("swap:["+heap[minPos]+"; "+heap[pos]+"]");
-            Utils.printList(heap);
-            System.out.println("____________");
-
             shiftDown(minPos);
         }
-
-        System.out.println();
-        System.out.println();
-
-
     }
 
     private int getParent(int pos){
