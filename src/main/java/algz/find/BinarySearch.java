@@ -32,4 +32,18 @@ public class BinarySearch {
             }
         }
     }
+
+    public int searchRec(Integer[] array, int x, int l, int u){
+        if(l > u){
+            return -1;
+        } else {
+            int mid = (l+u)/2;
+            if(array[mid] == x) return mid;
+            if(array[mid] > x){
+                return searchRec(array, x, l, mid);
+            } else {
+                return searchRec(array, x, mid, u);
+            }
+        }
+    }
 }

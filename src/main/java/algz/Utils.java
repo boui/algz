@@ -1,5 +1,7 @@
 package algz;
 
+import java.util.Map;
+
 public class Utils {
     public static void swap(int from, int to, Integer[] array) {
         Integer tmp = array[to];
@@ -33,4 +35,16 @@ public class Utils {
         }
         System.out.println("]");
     }
+
+    public static void printDistribution(Map<Integer, Integer> distribution){
+        for(Integer key:distribution.keySet()){
+            System.out.print("key=" + key + "[");
+            for(int i=0; i<distribution.get(key); i++){
+                System.out.print("|");
+            }
+            System.out.println("]");
+        }
+    }
+
+
 }
