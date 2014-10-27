@@ -29,7 +29,6 @@ public class FlashSort {
             karray[j]++;
         }
 
-        //TODO: find out why this is working
         for (int i = 1; i < m; i++){
             karray[i] += karray[i - 1];
         }
