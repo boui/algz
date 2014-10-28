@@ -7,6 +7,8 @@ package algz.eulerproject;
 public class RunClass {
     public static void main(String[] array){
 //        System.out.println(new T1().count(3,5,999));
-        System.out.println(new T2().fib());
+//        System.out.println(new T2().fib());
+        System.out.println(new T3().largestPrimeFactor(600851475143l));
+
     }
 }
