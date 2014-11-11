@@ -1,6 +1,9 @@
 package algz;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Utils {
     public static void swap(int from, int to, Integer[] array) {
@@ -22,7 +25,7 @@ public class Utils {
         return r;
     }
 
-    public static void printList(Integer[] list){
+    public static void printArray(Integer[] list){
         System.out.print("[");
         for(Integer i:list) System.out.print(i+",");
         System.out.println("]");
@@ -46,5 +49,26 @@ public class Utils {
         }
     }
 
+    public static Integer[] readArrayFromFile(String filename, int size) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File(filename));
 
+        Integer[] array = new Integer[size];
+        int k = 0;
+        while(scanner.hasNext()){
+            array[k] = scanner.nextInt();
+            k++;
+        }
+        scanner.close();
+        return array;
+    }
+
+    public static class Tuple{
+        public int v1;
+        public int v2;
+
+        public Tuple(int v1, int v2) {
+            this.v1 = v1;
+            this.v2 = v2;
+        }
+    }
 }

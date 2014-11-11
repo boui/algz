@@ -16,39 +16,47 @@ public class RunClass {
         Integer[] result = null;
 //
 //        result = new BubleSort().sort(array);
-//        Utils.printList(result);
+//        Utils.printArray(result);
 //
 //        result = new InsertionSort().sort(array);
-//        Utils.printList(result);
+//        Utils.printArray(result);
 //
 //        result = new SelectionSort().sort(array);
-//        Utils.printList(result);
+//        Utils.printArray(result);
 //
 //        result = new MergeSort().sortRecursively(array);
-//        Utils.printList(result);
+//        Utils.printArray(result);
 //
 //        result = new MergeSort().sortIncrementally(array);
-//        Utils.printList(result);
+//        Utils.printArray(result);
 //
 //        result = new QuickSort().sort(array);
-//        Utils.printList(result);
+//        Utils.printArray(result);
 //
 //        result = new QuickSort().sort(array2);
 //        r = new HeapSort().sort(array);
 //
-//        Utils.printList(result);
-//        Utils.printList(r);
+//        Utils.printArray(result);
+//        Utils.printArray(r);
 
-//        try{
+        try{
 //            new InversionsWithMergeSort().count("IntegerArray.txt");
-//        } catch (IOException e){
-//            System.out.println(e);
-//        }
+            QuickSort alg = new QuickSort();
+            System.out.println(alg.comparisonCount1());
+            System.out.println(alg.comparisonCount2v2());
+//            System.out.println(alg.comparisonCount2());
+            System.out.println(alg.comparisonCount3v3());
+        } catch (IOException e){
+            System.out.println(e);
+        }
 
 
+//
+//        result = new ShellSort().sort(array);
+//        Utils.printArray(result);
 
-        result = new ShellSort().sort(array);
-        Utils.printList(result);
+//        result = new FlashSort().sort(array);
+//        Utils.printArray(result);
 
     }
 }
