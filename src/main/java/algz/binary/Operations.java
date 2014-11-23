@@ -19,8 +19,7 @@ public class Operations {
             carry = d1bit & d2bit | d1bit & carry | d2bit & carry;
         }
 
-        result = (char)(carry+'0') + result;
-        return result;
+        return carry == 0 ? result : (char)(carry+'0')+result;
     }
 
     public static void main(String[] args) {
