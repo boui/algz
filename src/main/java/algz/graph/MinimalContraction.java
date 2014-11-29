@@ -8,20 +8,6 @@ import java.util.*;
 
 //17
 public class MinimalContraction {
-
-    public static void main(String[] args){
-        try {
-
-            MinimalContraction alg = new MinimalContraction();
-            for(int i=0; i<20; i++){
-                Map<Integer, LinkedList<Integer>> graph = readGraph("graph.txt");
-                System.out.println(alg.count(graph));
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
     private Random r = new Random();
     public int count(Map<Integer, LinkedList<Integer>> currentList){
         Utils.Tuple t = determineRandomEdgeNumber(currentList);
@@ -78,22 +64,5 @@ public class MinimalContraction {
         return tmp.get(r.nextInt(tmp.size()));
     }
 
-    private static Map<Integer, LinkedList<Integer>> readGraph(String filename) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(filename));
 
-        Map<Integer, LinkedList<Integer>> graph = new HashMap<Integer, LinkedList<Integer>>();
-        while(scanner.hasNextLine()){
-            LinkedList<Integer> edgeL = new LinkedList<Integer>();
-            String line = scanner.nextLine();
-            String[] edges = line.trim().split("\\s");
-            int vert = Integer.parseInt(edges[0]) - 1;
-            for(int i=1; i<edges.length; i++){
-                int tvert = Integer.parseInt(edges[i]) - 1;
-                if(vert != tvert) edgeL.add(tvert);
-            }
-            graph.put(vert, edgeL);
-        }
-        scanner.close();
-        return graph;
-    }
 }
