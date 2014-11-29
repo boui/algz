@@ -16,14 +16,9 @@ public class StronglyConnectedComponents {
     private List<List<Integer>> graphRev;
     private Deque<Integer> stack = new ArrayDeque<Integer>();
 
-    public StronglyConnectedComponents(String filename, int size) {
+    public StronglyConnectedComponents(List<List<Integer>> graph, int size) {
         SIZE = size;
-        try {
-            graph = readGraph(filename);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
+        this.graph = graph;
         graphRev = reverseGraph(graph);
 
         visited = new boolean[SIZE];
@@ -93,40 +88,5 @@ public class StronglyConnectedComponents {
         }
 
         return tmp;
-    }
-
-    private List<List<Integer>> readGraph(String filename) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new BufferedInputStream(new FileInputStream(filename)));
-
-        List<List<Integer>> graph = new ArrayList<List<Integer>>(SIZE);
-
-        for (int i = 0; i < SIZE; i++) {
-            graph.add(new LinkedList<Integer>());
-        }
-
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] vertexPair = line.trim().split("\\s");
-            Integer start = Integer.parseInt(vertexPair[0]) - 1;
-            Integer end = Integer.parseInt(vertexPair[1]) - 1;
-            if(!start.equals(end)) graph.get(start).add(end);
-        }
-
-        scanner.close();
-        return graph;
-    }
-
-    public static void main(String[] args) {
-        StronglyConnectedComponents alg = new StronglyConnectedComponents("SCC.txt", 875714);
-//        StronglyConnectedComponents alg = new StronglyConnectedComponents("SCC1.txt", 12);
-//        StronglyConnectedComponents alg = new StronglyConnectedComponents("SCC2.txt", 4);
-//        StronglyConnectedComponents alg = new StronglyConnectedComponents("SCC3.txt", 4);
-        System.out.println("start counting");
-        List<Integer> res = alg.countSCCs();
-        System.out.println("started sorting");
-        Collections.sort(res);
-        Collections.reverse(res);
-        System.out.println("finished sorting");
-        System.out.println(res.subList(0, 5));
     }
 }
